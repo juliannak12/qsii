@@ -3,9 +3,6 @@ polynomial.py
 
 Polynomial arithmetic over the reals, used as entries in the transfer matrix.
 Coefficients stored as list: coeffs[i] = coefficient of z^i.
-
-This is a direct Python translation of the polyAdd / polyMul / polyMatMul
-functions from the original MATLAB clusterB code.
 """
 
 
