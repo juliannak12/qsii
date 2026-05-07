@@ -2,17 +2,7 @@
 
 **Quantum weight enumerators for stabilizer codes via tensor network contraction.**
 
-Julianna Kelley · Virginia Tech · Advisor: Dr. ChunJun Cao · 2024–2026
-
----
-
-## What this is
-
-A stabilizer code's weight enumerator A(z) tells you everything about its error-correcting capability — the minimum non-zero coefficient gives you the code distance, which determines how many errors the code can catch. The problem is that computing A(z) is exponentially hard in general. This project uses the [Quantum LEGO tensor network framework](https://journals.aps.org/prxquantum/abstract/10.1103/PRXQuantum.3.020332) (Cao & Lackey 2022) to do it efficiently.
-
-The core idea: represent each stabilizer as a local tensor, connect them into a network matching the code's graph structure, and contract the network to read off A(z). For 1D codes this becomes a transfer matrix problem solvable in O(log n) time. I can compute enumerators for 1D cluster states with 1000+ qubits in under a second. 2D is harder — brute force works up to ~16 qubits, and row-by-row contraction is in progress.
-
-What I find genuinely satisfying about this is that the same computation that spits out a polynomial also secretly encodes a classical statistical mechanics partition function. GHZ → 1D Ising. Toric code → 2D Ising on a torus, with a verified ratio D_Z(z)/Z_Ising(z) = 0.5000 (explained by global Z₂ spin-flip symmetry). The connection feels deep in a way I'm still working to fully understand.
+Julianna Kelley ·
 
 ---
 
