@@ -4,8 +4,6 @@ cluster.py
 Weight enumerators for 1D and 2D cluster states.
 
 1D Cluster — transfer matrix tensor contraction
-================================================
-This is a direct Python translation of the MATLAB clusterB function.
 
 Stabilizers: K_i = X_i Z_{i-1} Z_{i+1}  (bulk); boundary terms drop one Z.
 
@@ -25,7 +23,6 @@ where v fixes p_0 = I (left virtual) and f fixes p_{n+1} = I (right virtual).
 Scales to 1000+ qubits via repeated squaring (O(log n) matrix multiplications).
 
 2D Cluster — brute force with optimized stabilizer checking
-===========================================================
 Stabilizers: K_{i,j} = X_{i,j} Z_{i±1,j} Z_{i,j±1}
 Exact for n = Lx*Ly <= ~16 qubits. Row-by-row contraction in progress.
 
@@ -39,9 +36,6 @@ from ..core.brute_force import weight_enumerator_brute_force, complete_weight_en
 _WT = [0, 1, 1, 1]
 
 
-# ─────────────────────────────────────────────────────────────────
-# LOCAL CONSTRAINT
-# ─────────────────────────────────────────────────────────────────
 
 def _cluster_local_ok(a, b, c):
     """
@@ -60,10 +54,6 @@ def _cluster_local_ok(a, b, c):
     if c in (1, 2):   count += 1   # right Z position
     return count % 2 == 0
 
-
-# ─────────────────────────────────────────────────────────────────
-# 1D CLUSTER — TRANSFER MATRIX
-# ─────────────────────────────────────────────────────────────────
 
 def _build_transfer_matrix():
     """
@@ -183,9 +173,6 @@ def compute_cluster_1d_complete(n: int):
     return complete_weight_enumerator_brute_force(cluster_1d_generators(n), n)
 
 
-# ─────────────────────────────────────────────────────────────────
-# 2D CLUSTER — BRUTE FORCE (exact up to ~16 qubits)
-# ─────────────────────────────────────────────────────────────────
 
 def cluster_2d_generators(Lx: int, Ly: int):
     """
