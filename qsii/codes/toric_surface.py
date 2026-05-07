@@ -6,11 +6,6 @@ Weight enumerators for toric and surface codes, with statistical mechanics verif
 Toric code: [[2L^2, 2, L]]  CSS code on L x L torus
 Surface code: CSS code on L x L open lattice with boundaries
 
-Key verified results:
-  D_Z(z) / Z_Ising(z) = 0.5000  for toric L=2   (global Z2 spin-flip symmetry)
-  D_Z(z) / Z_Ising(z) = 1.0000  for surface L=3  (open boundaries break symmetry)
-  Full SL / Z_Ashkin-Teller = 0.250000  (after correcting dual-lattice geometry)
-
 Author: Julianna Kelley
 """
 import numpy as np
@@ -21,11 +16,6 @@ from ..core.brute_force import (
     complete_weight_enumerator_brute_force,
     double_enumerator_brute_force,
 )
-
-
-# ─────────────────────────────────────────────────────────────────
-# TORIC CODE
-# ─────────────────────────────────────────────────────────────────
 
 def toric_code_generators(L: int):
     """
@@ -94,10 +84,6 @@ def compute_toric_enumerators(L: int, verbose: bool = True):
     return A_SL, B_SL, D_Z, D_X
 
 
-# ─────────────────────────────────────────────────────────────────
-# SURFACE CODE
-# ─────────────────────────────────────────────────────────────────
-
 def surface_code_generators(L: int):
     """
     Stabilizer generators for surface code on L x L open lattice.
@@ -164,10 +150,6 @@ def compute_surface_enumerators(L: int, verbose: bool = True):
     return A_SL, B_SL, D_Z, D_X
 
 
-# ─────────────────────────────────────────────────────────────────
-# STATISTICAL MECHANICS VERIFICATION
-# ─────────────────────────────────────────────────────────────────
-
 def ising_partition_function(L: int, beta: float, boundary: str = 'periodic') -> float:
     """
     2D Ising partition function Z = Σ_σ exp(β Σ_{<ij>} σ_i σ_j) on L x L lattice.
@@ -189,13 +171,6 @@ def ising_partition_function(L: int, beta: float, boundary: str = 'periodic') ->
 
 def verify_ising_ratio(L: int = 2):
     """
-    Verify the toric code Z-sector enumerator equals the 2D Ising partition function.
-
-    The Z-plaquette stabilizer group maps directly to the Ising high-temperature
-    expansion on the dual lattice. Treating z as the bond fugacity (z = 1 for
-    antiparallel, z = 0 for parallel — i.e. a polynomial in z counting disagreeing bonds),
-    the two polynomials are identical.
-
     Full stabilizer group D_Z (including X-stars) = 2^(L^2) * Z_Ising,
     because the 2^(L^2) X-star combinations all contribute z^0 to the Z-weight.
     This factor of 2^(L^2) reflects the X-sector degeneracy.
