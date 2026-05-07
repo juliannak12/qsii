@@ -11,9 +11,6 @@ Stabilizers:
 
 Result: A(z) = (1+z)^n  (perfect binomial — verified by brute force)
 
-The parity-augmented transfer matrix (from the MATLAB implementation)
-tracks anticommutation with X^n. Here we expose both the analytic formula
-and the brute-force computation so they can be compared.
 
 Author: Julianna Kelley
 """
