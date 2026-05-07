@@ -4,9 +4,6 @@ qsii — Quantum Stabilizer Information and Invariants
 Weight enumerators for quantum error-correcting codes
 via tensor network contraction (Quantum LEGO framework).
 
-Author: Julianna Kelley
-Advisor: Dr. ChunJun Cao
-Virginia Tech, 2024–2026
 """
 from .codes import (
     compute_ghz_enumerator,
