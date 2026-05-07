@@ -1,7 +1,7 @@
 """
 brute_force.py
 
-Reference implementation: enumerate all 2^m elements of the stabilizer group
+enumerate all 2^m elements of the stabilizer group
 and count by Pauli weight. Used to verify transfer matrix results.
 
 Scales as O(2^m) where m = number of generators. Use for n <= ~16.
